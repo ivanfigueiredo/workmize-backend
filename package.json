@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "ISC",
   "scripts": {
-    "startdev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/server.ts",
+    "start": "tsnd --transpile-only --respawn --ignore-watch node_modules src/server.ts",
     "test": "NODE_ENV=test jest"
   },
   "dependencies": {
