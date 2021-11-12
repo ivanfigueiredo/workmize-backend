@@ -12,7 +12,9 @@ import { infoUserController } from './useCases/InfoUser';
 
 const multerConfig = require('./config/multer');
 
-
+router.get('/test', (req, res) => {
+    res.send("OK!");
+});
 
 router.get('/downloads', (req, res) => {
     const { fileName } = req.query;
