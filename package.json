@@ -8,7 +8,7 @@
   "main": "index.js",
   "license": "ISC",
   "scripts": {
-    "start": "node server.ts",
+    "start": "ts-node server.ts",
     "test": "NODE_ENV=test jest"
   },
   "dependencies": {
