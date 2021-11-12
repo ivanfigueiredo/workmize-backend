@@ -12,7 +12,7 @@ import { infoUserController } from './useCases/InfoUser';
 
 const multerConfig = require('./config/multer');
 
-router.get('/test', (req, res) => {
+router.get('/', (req, res) => {
     res.send("OK!");
 });
 
