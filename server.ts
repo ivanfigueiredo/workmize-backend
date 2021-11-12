@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import morgan from 'morgan';
 import { router } from './routes';
 import * as dotenv from 'dotenv';
 dotenv.config({
@@ -34,8 +33,7 @@ export class App {
         this.express.use(cors({
         }));
         this.express.use(express.json());
-        this.express.use(express.urlencoded({extended: true}));   
-        this.express.use(morgan('dev'));     
+        this.express.use(express.urlencoded({extended: true}));      
     }
     
     routes() {
