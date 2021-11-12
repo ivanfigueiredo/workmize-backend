@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@types/bcrypt": "^5.0.0",
+    "@types/node": "^16.11.7",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
