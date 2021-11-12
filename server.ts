@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import { router } from './routes';
+import { router } from './src/routes';
 import * as dotenv from 'dotenv';
 dotenv.config({
     path: process.env.NODE_ENV == "test" ? ".env.test" : ".env"
