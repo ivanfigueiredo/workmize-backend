@@ -7,7 +7,7 @@ export class Task{
     
     public title: string;
     public holder: string;
-    public id_responsibles: string[];
+    public id_responsibles: string;
     public dispatch: Date;
     public status: string;
 

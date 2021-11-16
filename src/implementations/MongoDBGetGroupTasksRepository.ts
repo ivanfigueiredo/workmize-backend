@@ -5,7 +5,7 @@ import { IGroupTasksRepository } from "../repositories/IGroupTasksRepository";
 
 
 export class MoongoDBGetGroupTasksRepository implements IGroupTasksRepository {
-    async getGroupTasks(): Promise<Task> {
+    async getGroupTasks(): Promise<[Task]> {
         const tasks = await TaskSchema.find();
 
         return tasks;

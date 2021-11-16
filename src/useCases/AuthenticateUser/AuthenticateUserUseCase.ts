@@ -17,26 +17,20 @@ export class AuthenticateUserUseCase {
 
         const isAdminBoolean = Boolean(data.isAdmin)
         
-        
         const passwordCheck = await this.authRepository.passwordCheck(userExists.password, data.password);        
         
         if(!passwordCheck){
             throw new Error('Invalid email, password or permission.');
-        }        
-
-        console.log("Passou")
-        
+        }                
 
         const permissionCheck = await this.authRepository.permissionCheck(userExists.isAdmin, isAdminBoolean);
         
         if(!permissionCheck){
             throw new Error('permission');
         }
-
-        console.log("Passou");
         
         const token = sign({id: userExists.id, isAdmin: userExists.isAdmin}, `${process.env.KEY_AUTHORIZATION}`, {
-            expiresIn: "10m"
+            expiresIn: "60m"
         });        
 
         return token;

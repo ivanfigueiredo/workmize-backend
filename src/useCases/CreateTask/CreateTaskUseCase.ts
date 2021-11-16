@@ -8,6 +8,8 @@ export class CreateTaskUseCase {
     ){}
 
     async execute(data: CreateTaskDTO) {
+
+        console.log(data);
         
         const task = new Task({
             title: data.title,
@@ -16,6 +18,7 @@ export class CreateTaskUseCase {
             dispatch: data.dispatch,
             status: data.status
         });
+        
 
         await this.iTaskRepository.save(task);
     }

@@ -1,5 +1,4 @@
-import { Request, Response} from 'express';
-import { NextFunction } from "express";
+import { Request, Response, NextFunction} from 'express';
 import { verify } from "jsonwebtoken"
 
 
@@ -19,6 +18,8 @@ export function verifyJWT(request: Request, response: Response, next: NextFuncti
             id: decoded.id,
             isAdmin: decoded.isAdmin
         }
+
+        console.log(request.params.id);
 
         next();
     })

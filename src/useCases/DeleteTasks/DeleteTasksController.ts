@@ -1,4 +1,3 @@
-import { sign } from 'jsonwebtoken';
 import { Request, Response } from 'express';
 import { DeleteTasksUseCase } from './DeleteTasksUseCase';
 
@@ -10,22 +9,18 @@ export class DeleteTasksController {
     ){}
 
     async delete(request: Request, response: Response): Promise<Response> {
-        const { id_tasks, id_responsible } = request.body;
-        const {id, isAdmin} = request.params;
-
-        const token = sign({id, isAdmin}, `${process.env.KEY_AUTHORIZATION}`, {
-            expiresIn: "10m"
-        });   
+        const { isAdmin } = request.params;
+        const { id_tasks, id_holder, id_responsible } = request.body;
 
         try{
             await this.deleteTasksUseCase.execute({
                 id_tasks,
-                id_holder: id,
+                id_holder,
                 id_responsible,
                 isAdmin
             });
 
-            return response.status(201).send({token});
+            return response.status(201).send({});
         } catch (err){
             return response.status(400).json({
                 error: err.message

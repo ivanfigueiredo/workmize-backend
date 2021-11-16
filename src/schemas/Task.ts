@@ -19,7 +19,9 @@ const TaskSchema = new Schema(
             type: String ,         
         },
 
-        responsible: Array,
+        id_responsibles: {
+            type: String,
+        },
     
         dispatch: {
             type: Date,

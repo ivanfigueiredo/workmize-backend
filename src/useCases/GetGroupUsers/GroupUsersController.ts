@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { sign } from 'jsonwebtoken';
 import { GroupUsersUseCase } from "./GroupUsersUseCase";
 
 
@@ -9,15 +8,12 @@ export class GroupUsersController{
     ){}
 
     async getGroupUsers(request: Request, response: Response): Promise<Response>{
-        const {id, isAdmin} = request.body;
-        
-        const token = sign({id, isAdmin}, `${process.env.KEY_AUTHORIZATION}`, {
-            expiresIn: "10m"
-        }); 
+        const user_id  = JSON.stringify(request.query.id_user);
 
         try{
-            const users = await this.groupUsersUseCase.execute();
-            return response.status(201).send({token, users});
+            const users = await this.groupUsersUseCase.execute({id_user: user_id});
+           
+            return response.status(201).send({users});
 
         } catch(err){
             return response.status(400).json({

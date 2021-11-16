@@ -29,7 +29,7 @@ export class CreateUserUseCase {
       await this.usersRepository.save(user);
 
       const token = sign({id: user.id, isAdmin: user.isAdmin}, `${process.env.KEY_AUTHORIZATION}`, {
-         expiresIn: "10m"
+         expiresIn: "60m"
       }); 
       
       const object = {

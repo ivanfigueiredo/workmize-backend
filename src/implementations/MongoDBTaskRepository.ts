@@ -10,6 +10,9 @@ export class MongoDBTaskRepository implements ITaskRepository{
     async save(task: Task): Promise<void> {
         const newtask = new TaskCreate(task);
 
+        console.log("New Task" + newtask)
+        console.log("Task" + task)
+
         newtask.save();
     }
 }

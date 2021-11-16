@@ -4,7 +4,7 @@ export interface CreateTaskDTO {
     
     title: string;
     holder: string;
-    id_responsibles: string[];
+    id_responsibles: string;
     dispatch: Date;
     status: string;
 }
